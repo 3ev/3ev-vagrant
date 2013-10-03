@@ -12,7 +12,7 @@ And enter the following:
 
 Follow the installation instructions on [http://brew.sh/](http://brew.sh/)
 
-To install Homebrew you may need to install the Mac OS X Command Line Tools, these can be downloaded from here: [https://docs.google.com/a/3ev.com/file/d/0B1Bj8BKpxRQ7cVNRQjdxcHpJbTg/edit?usp=sharing](https://docs.google.com/a/3ev.com/file/d/0B1Bj8BKpxRQ7cVNRQjdxcHpJbTg/edit?usp=sharing)
+To install Homebrew you will need to have the Mac OS X build tools. The easiest way to acquire these is to install Xcode from the Mac App Store.
 
 ## Install VirtualBox
 
@@ -52,16 +52,6 @@ Whilst you're there you should also create a personal access token by going to [
 
 # Building your server
 
-## Configure the guest's IP address
-
-Open the `dnsmasq.conf` file from the `3ev-vagrant` directory in an editor. If you do not see your name listed here already add a line for yourself and then commit and push your change back to repo. The line in `dnsmasq.conf` defines your hostname.
-
-If your hostname is defined as `address=/bobby/192.168.56.110` then you should use the `.bobby` TLD for all of your project work e.g. for the LASSCO project you would configure the project's vhost to use `lassco.bobby` and view the site at [http://lassco.bobby](http://lassco.bobby) in your browser.
-
-Create a new environment variable in your `.bash_profile` on your Mac and set the IP address to the corresponding IP in `dnsmasq.conf` (`$ nano ~/.bash_profile`)
-
-	export VAGRANT_IP=192.168.56.xxx
-
 ## Install Dnsmasq
 
 To install Dnsmasq run:
@@ -84,7 +74,9 @@ To restart Dnsmasq unload it and then load it again. To unload:
 
 	sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
 
-Finally, add `127.0.0.1` to your DNS Servers on your Mac. Make sure it is the first entry. 
+Finally, add `127.0.0.1` to your DNS Servers on your Mac. Make sure it is the first entry.
+
+Now your Mac will always point `.dev` hostnames to your VM. When building a project you should the `.dev` domain e.g. `lassco.dev`.
 
 ## Create your projects directory
 

@@ -1,5 +1,12 @@
 #Setting up your development environment
 Get started by cloning this project on your Mac!
+You may want to add yourself to the Sudoers file so that you don't have enter your password when running commands as root. Run: 
+
+	$ sudo nano /etc/sudoers
+
+And enter the following:
+
+	macusernamehere ALL=(ALL) NOPASSWD:ALL
 
 ## Install Homebrew
 
@@ -73,6 +80,10 @@ And to launch Dnsmasq:
 
 	sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
 
+To restart Dnsmasq unload it and then load it again. To unload:
+
+	sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+
 Finally, add `127.0.0.1` to your DNS Servers on your Mac. Make sure it is the first entry. 
 
 ## Create your projects directory
@@ -84,6 +95,10 @@ All of your projects should be in this directory. You can start cloning your pro
 ## Starting the server
 
 Navigate to the `3ev-vagrant` directory and run `vagrant up`. This will take a while as the Ubuntu image will download and the  packages will be installed automatically on the virtual machine. 
+
+If you receive an error about the host network interface then try running `vagrant up` again.
+
+When the VM begins loading it will ask you to select a network interface. You should use your main connection; unless you are plugged in via ethernet this will be the Wi-Fi/Airport option.
 
 Your vm should be running now. Your local projects folder has been mounted to `/var/www/vhosts/`. You can do your project work by editing the local files in the projects directory on your Mac.
 

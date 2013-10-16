@@ -111,5 +111,5 @@ Sequel Pro is a MySQL GUI for Mac. To set up a connection to your VM enter the f
 - Username and Password: root
 - SSH Host: 127.0.0.1
 - SSH User: vagrant
-- SSH Key: ~/.composer.d/insecure\_private\_key
+- SSH Key: ~/.vagrant.d/insecure\_private\_key
 - SSH Port: 2222

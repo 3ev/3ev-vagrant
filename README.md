@@ -14,6 +14,8 @@ Follow the installation instructions on [http://brew.sh/](http://brew.sh/)
 
 To install Homebrew you will need to have the Mac OS X build tools. The easiest way to acquire these is to install Xcode from the Mac App Store.
 
+If you're feeling adventourous you can install VirtualBox and Vagrant using [Cask](https://github.com/phinze/homebrew-cask).
+
 ## Install VirtualBox
 
 Download and install from [https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)
@@ -52,32 +54,6 @@ Whilst you're there you should also create a personal access token by going to [
 
 # Building your server
 
-## Install Dnsmasq
-
-To install Dnsmasq run:
-	
-	brew install dnsmasq
-
-Symlink the `dnsmasq.conf` from the `3ev-vagrant` project:
-
-	ln -s ~/3ev-vagrant/dnsmasq.conf /usr/local/etc/dnsmasq.conf
-
-Set up Dnsmasq to run on startup:
-
-	sudo cp -fv /usr/local/opt/dnsmasq/*.plist /Library/LaunchDaemons
-
-And to launch Dnsmasq:
-
-	sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
-
-To restart Dnsmasq unload it and then load it again. To unload:
-
-	sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
-
-Finally, add `127.0.0.1` to your DNS Servers on your Mac. Make sure it is the first entry.
-
-Now your Mac will always point `.dev` hostnames to your VM. When building a project you should the `.dev` domain e.g. `lassco.dev`.
-
 ## Create your projects directory
 
 Create a projects directory in your home directory i.e.`$ mkdir ~/projects/`
@@ -100,6 +76,10 @@ You can access the VM by running vagrant ssh. The first time you start your vm y
 
 You can now start building and working on your projects by following the instructions in the `README` file of the project.
 
+**Note: ** You will need to edit the host file on your Mac so you can see your builds in a browser e.g. 
+
+	192.168.56.101 	singup.dev
+
 # Extra bits and pieces
 
 ## Setting up Sequel Pro
@@ -111,5 +91,5 @@ Sequel Pro is a MySQL GUI for Mac. To set up a connection to your VM enter the f
 - Username and Password: root
 - SSH Host: 127.0.0.1
 - SSH User: vagrant
-- SSH Key: ~/.composer.d/insecure\_private\_key
+- SSH Key: ~/.vagrant.d/insecure\_private\_key
 - SSH Port: 2222

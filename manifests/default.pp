@@ -11,7 +11,7 @@ Class['::apt::update'] -> Package <|
 and title != 'software-properties-common'
 |>
 
-    
+
 class { 'puphpet::dotfiles': }
 
 package { [
@@ -157,3 +157,6 @@ class { 'mysql::server':
 
 class { 'phptools': }
 class { 'share': }
+class { 'memcached':
+    max_memory => '10%'
+}

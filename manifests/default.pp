@@ -37,6 +37,28 @@ class { 'ruby':
     gems_version  => 'latest'
 }
 
+# Install Gems
+
+package { 'sass':
+  ensure   => '3.3.4',
+  provider => 'gem',
+  require => Class['ruby']
+}
+
+# Install global NPM packages
+
+package { 'requirejs':
+  ensure   => present,
+  provider => 'npm',
+  require => Class['nodejs']
+}
+
+package { 'bower':
+  ensure   => present,
+  provider => 'npm',
+  require => Class['nodejs']
+}
+
 class { 'apache': }
 
 apache::dotconf { 'custom':

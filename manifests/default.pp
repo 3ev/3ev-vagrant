@@ -11,7 +11,7 @@ Class['::apt::update'] -> Package <|
 and title != 'software-properties-common'
 |>
 
-    
+
 class { 'puphpet::dotfiles': }
 
 package { [
@@ -23,10 +23,42 @@ package { [
     'zsh',
     'imagemagick',
     'mongodb',
-    'nodejs',
-	'ruby-sass'
+    'sqlite3',
+    'libsqlite3-dev'
   ]:
   ensure  => 'installed',
+}
+
+# Install Node.js
+
+include nodejs
+
+# Install Ruby/Rubygems
+
+class { 'ruby':
+    gems_version  => 'latest'
+}
+
+# Install Gems
+
+package { 'sass':
+  ensure   => '3.3.4',
+  provider => 'gem',
+  require => Class['ruby']
+}
+
+# Install global NPM packages
+
+package { 'requirejs':
+  ensure   => present,
+  provider => 'npm',
+  require => Class['nodejs']
+}
+
+package { 'bower':
+  ensure   => present,
+  provider => 'npm',
+  require => Class['nodejs']
 }
 
 class { 'apache': }
@@ -142,8 +174,8 @@ puphpet::ini { 'custom':
     'log_errors = on',
     'post_max_size = "8M"',
     'upload_max_filesize = "2M"',
-	'suhosin.executor.include.whitelist = phar',
-	'extension="mongo.so"',
+    'suhosin.executor.include.whitelist = phar',
+    'extension="mongo.so"'
   ],
   ini     => '/etc/php5/conf.d/zzz_custom.ini',
   notify  => Service['apache'],
@@ -157,3 +189,6 @@ class { 'mysql::server':
 
 class { 'phptools': }
 class { 'share': }
+class { 'memcached':
+    max_memory => '10%'
+}

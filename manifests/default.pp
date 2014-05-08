@@ -175,9 +175,7 @@ puphpet::ini { 'custom':
     'post_max_size = "8M"',
     'upload_max_filesize = "2M"',
     'suhosin.executor.include.whitelist = phar',
-    'extension="mongo.so"',
-    'extension=pdo_sqlite.so',
-    'extension=sqlite.so'
+    'extension="mongo.so"'
   ],
   ini     => '/etc/php5/conf.d/zzz_custom.ini',
   notify  => Service['apache'],

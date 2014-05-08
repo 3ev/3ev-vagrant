@@ -22,11 +22,19 @@ package { [
     'sphinxsearch',
     'zsh',
     'imagemagick',
-    'mongodb',
-    'nodejs',
-	'ruby-sass'
+    'mongodb'
   ]:
   ensure  => 'installed',
+}
+
+# Install Node.js
+
+include nodejs
+
+# Install Ruby/Rubygems
+
+class { 'ruby':
+    gems_version  => 'latest'
 }
 
 class { 'apache': }

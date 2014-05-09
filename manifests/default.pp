@@ -88,7 +88,6 @@ php::module { 'php5-memcache': }
 php::module { 'php5-memcached': }
 php::module { 'php5-suhosin': }
 php::module { 'php-apc': }
-php::module { 'php5-xdebug': }
 
 class { 'php::devel':
   require => Class['php'],
@@ -101,6 +100,11 @@ class { 'php::pear':
 php::pecl::module { 'mongo':
   use_package => false,
   version => '1.2.12',
+}
+
+php::pecl::module { 'xdebug':
+  use_package => false,
+  version     => '2.2.5'
 }
 
 $xhprofPath = '/var/www/xhprof'
@@ -183,6 +187,9 @@ puphpet::ini { 'custom':
   require => Class['php'],
 }
 
+exec { "enable_xdebug":
+  command => "echo \"zend_extension=`find /usr/lib/php5 -name 'xdebug.so'`\" > /etc/php5/conf.d/xdebug.ini"
+}
 
 class { 'mysql::server':
   config_hash   => { 'root_password' => 'root' }

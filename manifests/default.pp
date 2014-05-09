@@ -88,6 +88,7 @@ php::module { 'php5-memcache': }
 php::module { 'php5-memcached': }
 php::module { 'php5-suhosin': }
 php::module { 'php-apc': }
+php::module { 'php5-xdebug': }
 
 class { 'php::devel':
   require => Class['php'],

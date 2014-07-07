@@ -31,7 +31,24 @@ package { [
 
 # Install Node.js
 
-include nodejs
+class { 'nodejs':
+    version      => 'v0.10.29',
+    make_install => false
+}
+
+# Install global NPM packages
+
+package { 'requirejs':
+    ensure   => present,
+    provider => 'npm',
+    require  => Class['nodejs']
+}
+
+package { 'bower':
+    ensure   => present,
+    provider => 'npm',
+    require  => Class['nodejs']
+}
 
 # Install Ruby/Rubygems
 
@@ -45,20 +62,6 @@ package { 'sass':
   ensure   => '3.3.4',
   provider => 'gem',
   require => Class['ruby']
-}
-
-# Install global NPM packages
-
-package { 'requirejs':
-  ensure   => present,
-  provider => 'npm',
-  require => Class['nodejs']
-}
-
-package { 'bower':
-  ensure   => present,
-  provider => 'npm',
-  require => Class['nodejs']
 }
 
 class { 'apache': }
@@ -99,7 +102,7 @@ class { 'php::pear':
 
 php::pecl::module { 'mongo':
   use_package => false,
-  version => '1.2.12',
+  version => '1.5.3',
 }
 
 php::pecl::module { 'xdebug':

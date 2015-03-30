@@ -47,3 +47,11 @@ you want yours to be different, [change the config in the Vagrantfile](https://g
 
 This server runs on `192.168.56.101` by default. You can change this by
 [editing the Vagrantfile](https://github.com/3ev/3ev-vagrant/blob/dev-tev-production/Vagrantfile#L13).
+
+##Thanks, related projects and useful links
+
+This box was build using ideas and similar config from a few different sources,
+in particular:
+
+* https://github.com/laravel/settler
+* https://gorails.com/setup/ubuntu/14.04

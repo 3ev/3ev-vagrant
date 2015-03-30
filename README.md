@@ -3,10 +3,10 @@
 This Vagrant box mirrors the setup on the `tev-production` server, with a few
 changes for development.
 
-##Installing Vagrant
+##Installing Vagrant and using this project
 
 See [the wiki](https://github.com/3ev/3ev-vagrant/wiki/Installing-Vagrant) for
-Vagrant installation instructions.
+Vagrant installation instructions and [how to use this project](https://github.com/3ev/3ev-vagrant/wiki/Using-this-Project).
 
 ##What's included?
 

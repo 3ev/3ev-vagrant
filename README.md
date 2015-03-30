@@ -51,9 +51,3 @@ you want yours to be different, [change the config in the Vagrantfile](https://g
 
 This server runs on `192.168.56.101` by default. You can change this by
 [editing the Vagrantfile](https://github.com/3ev/3ev-vagrant/blob/master/Vagrantfile#L10).
-
-####SSH Keys
-
-If you haven't already done so, you should add your key to Github. Follow these
-instructions:
-[https://help.github.com/articles/generating-ssh-keys](https://help.github.com/articles/generating-ssh-keys).

@@ -160,34 +160,3 @@ apt-get install -y sqlite3 libsqlite3-dev
 #
 
 apt-get install -y nodejs
-
-
-
-#
-# Install latest Ruby via Rbenv
-#
-
-# Install Rbenv
-
-git clone git://github.com/sstephenson/rbenv.git /home/vagrant/.rbenv
-echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> /home/vagrant/.bashrc
-echo 'eval "$(rbenv init -)"' >> /home/vagrant/.bashrc
-exec $SHELL
-
-# Install Rbenv ruby build
-
-git clone git://github.com/sstephenson/ruby-build.git /home/vagrant/.rbenv/plugins/ruby-build
-echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> /home/vagrant/.bashrc
-exec $SHELL
-
-git clone https://github.com/sstephenson/rbenv-gem-rehash.git /home/vagrant/.rbenv/plugins/rbenv-gem-rehash
-
-# Install latest Ruby
-
-rbenv install 2.2.1
-rbenv global 2.2.1
-
-# Install Bundler
-
-echo "gem: --no-ri --no-rdoc" > /home/vagrant/.gemrc
-gem install bundler

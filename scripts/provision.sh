@@ -53,13 +53,17 @@ libgdbm-dev libmcrypt4 libpcre3-dev
 # Install Apache
 #
 
-apt-get install -y apache
+apt-get install -y apache2
 
 # Enable modules
 
 a2enmod rewrite
 a2enmod headers
 a2enmod proxy
+
+# Remove default site
+
+a2dissite 000-default
 
 # Add vagrant user to www-data
 

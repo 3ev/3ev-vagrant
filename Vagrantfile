@@ -17,6 +17,10 @@ Vagrant.configure("2") do |config|
   config.ssh.insert_key = false
   config.ssh.forward_agent = true
 
+  # Override default SSH port
+
+  config.vm.network "forwarded_port", guest: 22, host: 2223, id: "ssh"
+
   # Virtualbox config
 
   config.vm.provider "virtualbox" do |v|

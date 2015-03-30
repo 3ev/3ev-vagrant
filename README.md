@@ -38,6 +38,10 @@ $ git checkout dev-tev-production
 $ vagrant up
 ```
 
+####SSH port
+
+You should SSH into this box using port `2223`, rather than the default `2222`.
+
 ####Shared folder
 
 The default shared folder for vhosts is `~/Sites/tev-production/`. If

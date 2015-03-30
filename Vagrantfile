@@ -4,9 +4,13 @@ Vagrant.configure("2") do |config|
 
   config.vm.box = "ubuntu/trusty64"
 
+  # Hostname
+
+  config.vm.hostname = "tev-production.dev"
+
   # Setup networking
 
-  config.vm.network :private_network, ip: "192.168.56.102"
+  config.vm.network :private_network, ip: "192.168.56.101"
 
   # Use default Vagrant SSH key and forward SSH details to VM
 
@@ -15,10 +19,10 @@ Vagrant.configure("2") do |config|
 
   # Virtualbox config
 
-  config.vm.provider :virtualbox do |v|
-    v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+  config.vm.provider "virtualbox" do |v|
     v.customize ["modifyvm", :id, "--memory", 1024]
-    v.customize ["modifyvm", :id, "--name", "3ev-dev-tev-production"]
+    v.customize ["modifyvm", :id, "--natdnsproxy1", "off"]
+    v.customize ["modifyvm", :id, "--natdnshostresolver1", "off"]
   end
 
   # Shared folders (vhosts)

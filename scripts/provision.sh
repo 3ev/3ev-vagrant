@@ -96,7 +96,7 @@ php5-json php5-mysqlnd php5-gmp php5-imap php5-xdebug
 # Make MCrypt Available
 
 ln -s /etc/php5/conf.d/mcrypt.ini /etc/php5/mods-available
-sudo php5enmod mcrypt
+php5enmod mcrypt
 
 # Configure some general settings
 

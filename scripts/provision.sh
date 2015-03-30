@@ -129,6 +129,10 @@ curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 printf "\nPATH=\"/home/vagrant/.composer/vendor/bin:\$PATH\"\n" | tee -a /home/vagrant/.profile
 
+# Install PEAR packages
+
+pear install Services_Amazon_S3-alpha
+
 
 
 #

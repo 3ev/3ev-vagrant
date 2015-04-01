@@ -12,7 +12,7 @@ Vagrant installation instructions and [how to use this project](https://github.c
 
 * Ubuntu 14.04
 * Apache 2.4
-* MySQL 5.6 (root user/password: `root/root`)
+* MySQL 5.5 (root user/password: `root/root`)
 * PHP 5.5, and some useful extensions
 * Composer
 * Memcache

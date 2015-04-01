@@ -83,7 +83,7 @@ service apache2 restart
 
 debconf-set-selections <<< "mysql-server mysql-server/root_password password root"
 debconf-set-selections <<< "mysql-server mysql-server/root_password_again password root"
-apt-get install -y mysql-server-5.5
+apt-get install -y mysql-server-5.5 mysql-client-5.5 mysql-server-core-5.5
 
 
 

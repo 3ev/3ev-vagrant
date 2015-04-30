@@ -164,3 +164,15 @@ apt-get install -y sqlite3 libsqlite3-dev
 #
 
 apt-get install -y nodejs
+
+
+
+#
+# Install Java & Elasticsearch
+#
+
+apt-get install -y openjdk-7-jre-headless
+wget -qO - https://packages.elasticsearch.org/GPG-KEY-elasticsearch | apt-key add -
+echo "deb http://packages.elasticsearch.org/elasticsearch/1.5/debian stable main" | tee -a /etc/apt/sources.list
+apt-get install -y elasticsearch
+update-rc.d elasticsearch defaults 95 10

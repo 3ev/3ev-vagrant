@@ -19,6 +19,7 @@ Vagrant installation instructions and [how to use this project](https://github.c
 * Redis
 * SQLite
 * Node.js latest
+* Java & Elasticsearch 1.5
 * Ruby 2.2.1 (via Rbenv)
 
 ##Building the box

@@ -24,6 +24,8 @@ Vagrant installation instructions and [how to use this project](https://github.c
 
 ##Building the box
 
+**Important:** Before building your box, remember to [add your SSH key to `ssh-agent`](https://github.com/3ev/3ev-vagrant/wiki/Using-this-Project#important-ssh-keys).
+
 ```sh
 # Clone this repo to wherever you'd like. I keep all of my servers in one directory
 

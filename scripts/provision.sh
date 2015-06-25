@@ -62,6 +62,7 @@ apt-get install -y apache2
 a2enmod rewrite
 a2enmod headers
 a2enmod proxy
+a2enmod expires
 
 # Remove default site
 

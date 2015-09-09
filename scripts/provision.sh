@@ -39,7 +39,7 @@ apt-get update
 #
 # Install basic packages
 #
-# Some of these are require for Rbenv, some for PHP:
+# Some of these are required for Rbenv, some for PHP:
 #
 # - Ruby: https://github.com/sstephenson/ruby-build/wiki
 # - PHP: re2c, libmcrypt4 libpcre3-dev
@@ -47,7 +47,7 @@ apt-get update
 
 apt-get install -y build-essential make gcc git curl re2c vim zsh \
 autoconf bison libssl-dev libyaml-dev libncurses5-dev libffi-dev libgdbm3 \
-libgdbm-dev libmcrypt4 libpcre3-dev
+libgdbm-dev libmcrypt4 libpcre3-dev imagemagick
 
 
 

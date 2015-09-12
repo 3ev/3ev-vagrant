@@ -166,6 +166,10 @@ apt-get install -y sqlite3 libsqlite3-dev
 
 apt-get install -y nodejs
 
+# Update NPM to latest version
+
+npm -g update npm
+
 
 
 #

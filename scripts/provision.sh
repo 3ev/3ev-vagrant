@@ -47,7 +47,7 @@ apt-get update
 
 apt-get install -y build-essential make gcc git curl re2c vim zsh \
 autoconf bison libssl-dev libyaml-dev libncurses5-dev libffi-dev libgdbm3 \
-libgdbm-dev libmcrypt4 libpcre3-dev
+libgdbm-dev libmcrypt4 libpcre3-dev libreadline6-dev zlib1g-dev
 
 
 

@@ -40,7 +40,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.provision "shell" do |s|
-    s.path = "./scripts/rbenv.sh"
+    s.path = "./scripts/ruby.sh"
     s.privileged = false
   end
 

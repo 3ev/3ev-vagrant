@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #
-# Install latest Ruby via Rbenv
+# Install latest Ruby via Rbenv, and any desired gems.
 #
 # This script should be run with 'privileged' set to false (i.e as the vagrant
 # user).

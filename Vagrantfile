@@ -35,13 +35,7 @@ Vagrant.configure("2") do |config|
 
   # Provision
 
-  config.vm.provision "shell" do |s|
-    s.path = "./scripts/provision.sh"
-  end
-
-  config.vm.provision "shell" do |s|
-    s.path = "./scripts/ruby.sh"
-    s.privileged = false
-  end
+  config.vm.provision "shell", path: "./scripts/provision.sh"
+  config.vm.provision "shell", path: "./scripts/ruby.sh", privileged: false
 
 end

@@ -181,3 +181,14 @@ echo "deb http://packages.elasticsearch.org/elasticsearch/1.5/debian stable main
 apt-get update
 apt-get install -y openjdk-7-jre-headless elasticsearch
 update-rc.d elasticsearch defaults 95 10
+
+
+
+#
+# Install wkhtmltopdf
+#
+
+wget -q http://download.gna.org/wkhtmltopdf/0.12/0.12.2.1/wkhtmltox-0.12.2.1_linux-trusty-amd64.deb
+dpkg -i wkhtmltox-0.12.2.1_linux-trusty-amd64.deb
+apt-get -f -y install
+rm wkhtmltox-0.12.2.1_linux-trusty-amd64.deb

@@ -8,10 +8,6 @@ Vagrant.configure("2") do |config|
 
   config.vm.hostname = "tev-production.dev"
 
-  # Setup networking
-
-  config.vm.network :private_network, ip: "192.168.56.101"
-
   # Use default Vagrant SSH key and forward SSH details to VM
 
   config.ssh.insert_key = false
@@ -28,10 +24,6 @@ Vagrant.configure("2") do |config|
     v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
   end
-
-  # Shared folders (vhosts)
-
-  config.vm.synced_folder "~/Sites/tev-production/", "/var/www/vhosts", id: "vagrant-root", nfs: true
 
   # Provision
 

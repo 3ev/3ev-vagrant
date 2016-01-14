@@ -77,6 +77,6 @@ stop on runlevel [!2345]
 
 respawn
 
-exec /usr/bin/env \$(which mailcatcher) --foreground --http-ip=0.0.0.0
+exec /usr/bin/env /home/vagrant/.rbenv/shims/mailcatcher --foreground --http-ip=0.0.0.0
 "
 echo "$mlctchrupstart" | sudo tee /etc/init/mailcatcher.conf

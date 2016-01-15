@@ -15,7 +15,7 @@ for development.
 * SQLite
 * Node.js latest
 * Java & Elasticsearch 1.5
-* Ruby 2.2.1 (via Rbenv)
+* Ruby 2.2.1 (via Rbenv) and Bundler
 * Mailcatcher (installed and running by default for PHP, at port `1080`)
 * Wkhtmltopdf 0.12.2.1
 

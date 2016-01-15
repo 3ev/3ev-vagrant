@@ -1,12 +1,7 @@
 #Tev Production Vagrant Box
 
-This Vagrant box mirrors the setup on the `tev-production` server, with a few
-changes for development.
-
-##Installing Vagrant and using this project
-
-See [the wiki](https://github.com/3ev/3ev-vagrant/wiki/Installing-Vagrant) for
-Vagrant installation instructions and [how to use this project](https://github.com/3ev/3ev-vagrant/wiki/Using-this-Project).
+This Vagrant box mirrors the setup on the production server, with a few changes
+for development.
 
 ##What's included?
 
@@ -21,43 +16,12 @@ Vagrant installation instructions and [how to use this project](https://github.c
 * Node.js latest
 * Java & Elasticsearch 1.5
 * Ruby 2.2.1 (via Rbenv)
-
-##Building the box
-
-**Important:** Before building your box, remember to [add your SSH key to `ssh-agent`](https://github.com/3ev/3ev-vagrant/wiki/Using-this-Project#important-ssh-keys).
-
-```sh
-# Clone this repo to wherever you'd like. I keep all of my servers in one directory
-
-$ git clone git@github.com:3ev/3ev-vagrant.git ~/Code/servers/tev-production
-
-# Checkout the branch for this box
-
-$ cd ~/Code/servers/tev-production
-$ git checkout dev-tev-production
-
-# Build
-
-$ vagrant up
-```
-
-####SSH port
-
-You should SSH into this box using port `2223`, rather than the default `2222`.
-
-####Shared folder
-
-The default shared folder for vhosts is `~/Sites/tev-production/`. If
-you want yours to be different, [change the config in the Vagrantfile](https://github.com/3ev/3ev-vagrant/blob/dev-tev-production/Vagrantfile#L30).
-
-####IP
-
-This server runs on `192.168.56.101` by default. You can change this by
-[editing the Vagrantfile](https://github.com/3ev/3ev-vagrant/blob/dev-tev-production/Vagrantfile#L13).
+* Mailcatcher (installed and running by default for PHP, at port `1080`)
+* Wkhtmltopdf 0.12.2.1
 
 ##Thanks, related projects and useful links
 
-This box was build using ideas and similar config from a few different sources,
+This box was built using ideas and similar config from a few different sources,
 in particular:
 
 * https://github.com/laravel/settler

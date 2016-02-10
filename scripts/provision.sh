@@ -101,8 +101,9 @@ apt-get install -y mongodb
 #
 
 apt-get install -y php5 libapache2-mod-php5 php5-dev php5-cli php5-curl \
-php5-gd php5-intl php5-mcrypt php5-memcached php-apc php5-sqlite php-pear \
-php5-json php5-mysqlnd php5-gmp php5-imap php5-imagick php5-memcache php5-suhosin
+php5-gd php5-intl php5-mcrypt php5-memcache php5-memcached php-apc php5-sqlite \
+php-pear php5-json php5-mysqlnd php5-gmp php5-imap php5-imagick php5-memcache \
+php5-suhosin
 
 # Configure some general settings
 

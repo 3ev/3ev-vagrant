@@ -93,8 +93,8 @@ apt-get install -y mysql-server-5.5 mysql-client-5.5 mysql-server-core-5.5
 #
 
 apt-get install -y php5 libapache2-mod-php5 php5-dev php5-cli php5-curl \
-php5-gd php5-intl php5-mcrypt php5-memcached php5-apcu php5-sqlite php-pear \
-php5-json php5-mysqlnd php5-gmp php5-imap
+php5-gd php5-intl php5-mcrypt php5-memcache php5-memcached php5-apcu \
+php5-sqlite php-pear php5-json php5-mysqlnd php5-gmp php5-imap
 
 # Make MCrypt Available
 

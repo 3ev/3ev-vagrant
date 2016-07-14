@@ -138,6 +138,7 @@ printf "\nPATH=\"/home/vagrant/.composer/vendor/bin:\$PATH\"\n" | tee -a /home/v
 
 pear channel-discover pear.phing.info
 pear install Services_Amazon_S3-alpha
+pear upgrade pear/Archive_Tar
 pear install phing/phing
 
 

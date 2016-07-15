@@ -89,6 +89,14 @@ apt-get install -y mysql-server-5.5 mysql-client-5.5 mysql-server-core-5.5
 
 
 #
+# Install MongoDB
+#
+
+apt-get install -y mongodb
+
+
+
+#
 # Install and configure PHP
 #
 

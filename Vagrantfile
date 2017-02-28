@@ -2,15 +2,19 @@ Vagrant.configure("2") do |config|
 
   # Ubuntu 14.04
 
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "ubuntu/xenial64"
 
   # Hostname
 
-  config.vm.hostname = "tev-production.dev"
+  config.vm.hostname = "tev-u16.dev"
 
   # Use default Vagrant SSH key and forward SSH details to VM
 
-  config.ssh.insert_key = false
+  # This is to address https://bugs.launchpad.net/cloud-images/+bug/1569237
+  # If "they" sort out the lack of the "vagrant" username in future, we should
+  # revert this back as well as the use of the "vagrant" username in all
+  # provisioning scripts
+  #config.ssh.insert_key = false # problem
   config.ssh.forward_agent = true
 
   # Override default SSH port
@@ -29,5 +33,4 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "shell", path: "./scripts/provision.sh"
   config.vm.provision "shell", path: "./scripts/ruby.sh", privileged: false
-
 end

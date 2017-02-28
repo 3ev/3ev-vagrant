@@ -29,7 +29,8 @@ ln -sf /usr/share/zoneinfo/UTC /etc/localtime
 
 apt-get install -y python-software-properties software-properties-common
 
-apt-add-repository ppa:chris-lea/node.js -y
+# No longer required https://github.com/nodesource/distributions/issues/324
+#apt-add-repository ppa:chris-lea/node.js -y
 apt-add-repository ppa:rwky/redis -y
 
 apt-get update
@@ -68,11 +69,11 @@ a2enmod expires
 
 a2dissite 000-default
 
-# Add vagrant user to www-data
+# Add ubuntu user to www-data
 
-usermod -a -G www-data vagrant
-id vagrant
-groups vagrant
+usermod -a -G www-data ubuntu
+id ubuntu
+groups ubuntu
 
 service apache2 restart
 
@@ -82,46 +83,44 @@ service apache2 restart
 # Install MySQL, set root password to 'root'
 #
 
-debconf-set-selections <<< "mysql-server mysql-server/root_password password root"
-debconf-set-selections <<< "mysql-server mysql-server/root_password_again password root"
-apt-get install -y mysql-server-5.5 mysql-client-5.5 mysql-server-core-5.5
+debconf-set-selections <<< "mysql-server mysql-server/root_password password SMmier4mi43xyz"
+debconf-set-selections <<< "mysql-server mysql-server/root_password_again password SMmier4mi43xyz"
+apt-get install -y mysql-server-5.7 mysql-client-5.7 mysql-server-core-5.7
 
 
 
 #
 # Install MongoDB
 #
-
-apt-get install -y mongodb
-
-
-
+# Not unless we're actually using it. Which we aren't.
+# apt-get install -y mongodb
 #
 # Install and configure PHP
 #
 
-apt-get install -y php5 libapache2-mod-php5 php5-dev php5-cli php5-curl \
-php5-gd php5-intl php5-mcrypt php5-memcache php5-memcached php5-apcu \
-php5-sqlite php-pear php5-json php5-mysqlnd php5-gmp php5-imap
+apt-get -y install php7.0 libapache2-mod-php7.0
+apt-get install -y php libapache2-mod-php php7.0-mcrypt php7.0-mysql php-pear \
+php7.0-gd php7.0-intl php-memcache php-apcu php7.0-sqlite3 php7.0-json \
+php7.0-mysql php7.0-imap
 
 # Make MCrypt Available
 
-ln -s /etc/php5/conf.d/mcrypt.ini /etc/php5/mods-available
-php5enmod mcrypt
+#ln -s /etc/php5/conf.d/mcrypt.ini /etc/php5/mods-available
+#php5enmod mcrypt
 
 # Configure some general settings
-
-sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php5/cli/php.ini
-sed -i "s/display_errors = .*/display_errors = On/" /etc/php5/cli/php.ini
-sed -i "s/log_errors = .*/log_errors = On/" /etc/php5/cli/php.ini
-sed -i "s/memory_limit = .*/memory_limit = 128M/" /etc/php5/cli/php.ini
-sed -i "s/;date.timezone.*/date.timezone = UTC/" /etc/php5/cli/php.ini
-
-sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php5/apache2/php.ini
-sed -i "s/display_errors = .*/display_errors = On/" /etc/php5/apache2/php.ini
-sed -i "s/log_errors = .*/log_errors = On/" /etc/php5/cli/php.ini
-sed -i "s/memory_limit = .*/memory_limit = 128M/" /etc/php5/apache2/php.ini
-sed -i "s/;date.timezone.*/date.timezone = UTC/" /etc/php5/apache2/php.ini
+# Removed - add in as required
+#sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php5/cli/php.ini
+#sed -i "s/display_errors = .*/display_errors = On/" /etc/php5/cli/php.ini
+#sed -i "s/log_errors = .*/log_errors = On/" /etc/php5/cli/php.ini
+#sed -i "s/memory_limit = .*/memory_limit = 128M/" /etc/php5/cli/php.ini
+#sed -i "s/;date.timezone.*/date.timezone = UTC/" /etc/php5/cli/php.ini
+#
+#sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php5/apache2/php.ini
+#sed -i "s/display_errors = .*/display_errors = On/" /etc/php5/apache2/php.ini
+#sed -i "s/log_errors = .*/log_errors = On/" /etc/php5/cli/php.ini
+#sed -i "s/memory_limit = .*/memory_limit = 128M/" /etc/php5/apache2/php.ini
+#sed -i "s/;date.timezone.*/date.timezone = UTC/" /etc/php5/apache2/php.ini
 
 service apache2 restart
 
@@ -129,7 +128,7 @@ service apache2 restart
 
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
-printf "\nPATH=\"/home/vagrant/.composer/vendor/bin:\$PATH\"\n" | tee -a /home/vagrant/.profile
+printf "\nPATH=\"/home/ubuntu/.composer/vendor/bin:\$PATH\"\n" | tee -a /home/ubuntu/.profile
 
 # Install PEAR packages
 
@@ -146,7 +145,14 @@ pear install phing/phing
 
 apt-get install -y memcached
 
+#
+# Install nodejs and nodejs-legacy
+#
 
+apt-get install -y nodejs
+apt-get install -y nodejs-legacy
+apt-get install -y npm
+npm -g update npm
 
 #
 # Install Redis
@@ -163,19 +169,6 @@ apt-get install -y redis-server
 apt-get install -y sqlite3 libsqlite3-dev
 
 
-
-#
-# Install Node.js
-#
-
-apt-get install -y nodejs
-
-# Update NPM to latest version
-
-npm -g update npm
-
-
-
 #
 # Install Java & Elasticsearch
 #
@@ -183,7 +176,7 @@ npm -g update npm
 wget -qO - https://packages.elasticsearch.org/GPG-KEY-elasticsearch | apt-key add -
 echo "deb http://packages.elasticsearch.org/elasticsearch/1.5/debian stable main" | tee -a /etc/apt/sources.list
 apt-get update
-apt-get install -y openjdk-7-jre-headless elasticsearch
+apt-get install -y default-jre default-jdk elasticsearch
 update-rc.d elasticsearch defaults 95 10
 
 

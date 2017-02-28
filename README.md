@@ -5,10 +5,14 @@ for development.
 
 ##What's included?
 
-* Ubuntu 14.04
+*Not stable*
+
+Everything has been updated. Confirm verisons when it's stable.
+
+* Ubuntu 16.04
 * Apache 2.4
-* MySQL 5.5 (root user/password: `root/root`)
-* PHP 5.5, and some useful extensions
+* MySQL 5.7 (root user/password: `root/root`) ???
+* PHP 7.0, and some useful extensions
 * Composer
 * Memcache
 * Redis

@@ -3,7 +3,7 @@
 #
 # Install latest Ruby via Rbenv, and any desired gems.
 #
-# This script should be run with 'privileged' set to false (i.e as the vagrant
+# This script should be run with 'privileged' set to false (i.e as the ubuntu
 # user).
 #
 
@@ -21,7 +21,7 @@ echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 # Install Rbenv
 #
 
-git clone git@github.com:sstephenson/rbenv.git $HOME/.rbenv
+git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> $HOME/.bashrc
 echo 'eval "$(rbenv init -)"' >> $HOME/.bashrc
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -33,11 +33,11 @@ eval "$(rbenv init -)"
 # Install ruby build and gem rehash plugins
 #
 
-git clone git@github.com:sstephenson/ruby-build.git $HOME/.rbenv/plugins/ruby-build
+git clone https://github.com/sstephenson/ruby-build.git $HOME/.rbenv/plugins/ruby-build
 echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> $HOME/.bashrc
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
-git clone git@github.com:sstephenson/rbenv-gem-rehash.git $HOME/.rbenv/plugins/rbenv-gem-rehash
+git clone https://github.com/sstephenson/rbenv-gem-rehash.git $HOME/.rbenv/plugins/rbenv-gem-rehash
 
 
 
@@ -77,6 +77,6 @@ stop on runlevel [!2345]
 
 respawn
 
-exec /usr/bin/env /home/vagrant/.rbenv/shims/mailcatcher --foreground --http-ip=0.0.0.0
+exec /usr/bin/env /home/ubuntu/.rbenv/shims/mailcatcher --foreground --http-ip=0.0.0.0
 "
 echo "$mlctchrupstart" | sudo tee /etc/init/mailcatcher.conf

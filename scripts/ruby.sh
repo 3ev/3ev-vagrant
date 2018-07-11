@@ -21,13 +21,20 @@ echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 # Install Rbenv
 #
 
-git clone git@github.com:sstephenson/rbenv.git $HOME/.rbenv
-echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> $HOME/.bashrc
-echo 'eval "$(rbenv init -)"' >> $HOME/.bashrc
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+sudo apt-get update
+cd
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+exec $SHELL
 
+git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
+exec $SHELL
 
+rbenv install 2.5.1
+rbenv global 2.5.1
+ruby -v
 
 #
 # Install ruby build and gem rehash plugins
@@ -39,14 +46,6 @@ export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
 git clone git@github.com:sstephenson/rbenv-gem-rehash.git $HOME/.rbenv/plugins/rbenv-gem-rehash
 
-
-
-#
-# Install latest Ruby
-#
-
-rbenv install 2.2.1
-rbenv global 2.2.1
 
 
 

@@ -55,7 +55,7 @@ git clone git@github.com:sstephenson/rbenv-gem-rehash.git $HOME/.rbenv/plugins/r
 
 echo "gem: --no-ri --no-rdoc" > $HOME/.gemrc
 gem install bundler
-gem install sass -v 3.3.4
+gem install sass -v 3.5.6
 
 
 

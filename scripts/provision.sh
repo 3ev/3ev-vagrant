@@ -91,6 +91,12 @@ sudo apt-get install -y mysql-client-core-5.7
 
 mysql_secure_installation
 
+sudo sed -i "s/.*bind-address.*/bind-address = 0.0.0.0/" /etc/mysql/mysql.conf.d/mysqld.cnf
+
+mysql -u "root" -p"root" -Bse "GRANT ALL ON *.* to root@'%' IDENTIFIED BY 'password';"
+
+sudo service mysql restart
+
 #
 # Install and configure PHP
 #
@@ -105,7 +111,7 @@ sudo apt-get install -y libapache2-mod-php7.2
 
 sudo apt-get install -y php-pear
 
-service apache2 restart
+sudo service apache2 restart
 
 # Install Composer
 
@@ -140,11 +146,12 @@ sudo apt-get install -y memcached
 # Install Node.js
 #
 
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+
 sudo apt-get install -y nodejs
 
-# Update NPM to latest version
-
-sudo apt-get install -y npm
+sudo apt-get install -y aptitude
+sudo aptitude install -y npm
 
 # Install some NPM packages
 

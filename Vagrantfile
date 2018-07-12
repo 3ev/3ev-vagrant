@@ -6,7 +6,7 @@ settings = YAML::load(File.read(File.dirname(__FILE__) + "/settings.yaml"))
 
 Vagrant.configure("2") do |config|
 
-  # Ubuntu 12.02
+  # Ubuntu 18.04
 
   config.vm.box = "ubuntu/bionic64"
 
@@ -36,7 +36,7 @@ Vagrant.configure("2") do |config|
     v.customize ["modifyvm", :id, "--memory", 1536]
     v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-    v.customize [ 'modifyvm', :id, '--uartmode1', 'disconnected']
+    v.customize ["modifyvm", :id, "--uartmode1", "disconnected"]
   end
 
   # Provision

@@ -1,8 +1,0 @@
-# vim: syntax=yaml
-
-box: tev-modern
-ssh_port: 2223
-sites_path: "~/Sites/"
-ram: 2056
-ip: "192.168.56.101"
-username: vagrant

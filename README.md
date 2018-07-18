@@ -1,6 +1,6 @@
-# Tev Basic Vagrant Box
+# Tev Modern Vagrant Box
 
-This basic Vagrant box mirrors the setup on a few different servers.
+This modern Vagrant box mirrors the setup on a few different servers.
 
 ## What's included?
 

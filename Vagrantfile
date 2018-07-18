@@ -1,3 +1,8 @@
+# vim: syntax=ruby
+require 'yaml'
+
+settings = YAML::load(File.read(File.dirname(__FILE__) + "/settings.yaml"))
+
 Vagrant.configure("2") do |config|
 
   # Ubuntu 18.04
@@ -9,10 +14,21 @@ Vagrant.configure("2") do |config|
 
   config.vm.hostname = "tev-modern.dev"
 
+  # Default private networking IP
+
+  config.vm.network :private_network, ip: settings["ip"]
+
+  # Synced folders
+
+  config.vm.synced_folder settings["sites_path"], "/var/www/vhosts", id: "vagrant-root", nfs: true
+
   # Use default Vagrant SSH key and forward SSH details to VM
 
   config.ssh.insert_key = false
   config.ssh.forward_agent = true
+
+  # Required because "they" won't change the login user. This might change in future.
+  config.ssh.username = settings["username"]
 
   # Virtualbox config
 

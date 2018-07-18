@@ -40,14 +40,8 @@ ruby -v
 # Install ruby build and gem rehash plugins
 #
 
-git clone git@github.com:sstephenson/ruby-build.git $HOME/.rbenv/plugins/ruby-build
 echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> $HOME/.bashrc
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-
-git clone git@github.com:sstephenson/rbenv-gem-rehash.git $HOME/.rbenv/plugins/rbenv-gem-rehash
-
-
-
 
 #
 # Install Gems
